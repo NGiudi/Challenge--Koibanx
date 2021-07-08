@@ -5,7 +5,7 @@ export const constColumns = [
   },
   {
     Header: 'Comercio',
-    accessor: 'comercio',
+    accessor: 'commerce',
   },
   {
     Header: 'CUIT',
@@ -40,11 +40,12 @@ export const constColumns = [
     accessor: 'balance',
   },
   {
+    id: "asset",
     Header: 'Activo',
-    accessor: 'active',
+    accessor: d => d.asset ? "true" : "false",
   },
   {
     Header: 'Última venta',
-    accessor: 'last_move',
+    accessor: 'last_movement',
   },
 ];
