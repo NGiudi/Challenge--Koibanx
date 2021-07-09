@@ -1,5 +1,5 @@
-#Ejercicio de Flitrado de elementos de una tabla
-##Requisitos
+# Ejercicio de Flitrado de elementos de una tabla
+## Requisitos
 a. Se necesita una barra de búsqueda que hable con la api para poder filtrar la información de manera útil para el usuario y se la pase a la tabla.
 b. La tabla debe permitir ordenar por las columnas Comercios y Cuit.
 c. Se necesita poder filtrar la información por ID y/o CUIT y/o Nombre de comercio. Ya sea porque es exacto como parecido a Ejemplo: "34" puede buscar al ID 34 o 340, al cuit 30-3454… o al comercio "pancho 34". (Tip: lo importante es cómo se forman los query params, la búsqueda la realiza la api, no el front).
