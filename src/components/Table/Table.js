@@ -10,8 +10,9 @@ import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 // imports from locals files.
 import { FilterContext } from '../../context/FilterContext';
 import { constColumns } from '../../const/columnsTable';
+import { Center, HeaderTable, MainView, Table, Td, Th, Tr } from './TableStyles';
 
-function Table({tableData}) {
+function TableComponent({tableData}) {
   const { sortState, setSortState } = useContext(FilterContext);
   const columns = React.useMemo (() => constColumns, []);
   const { data } = tableData;
@@ -47,30 +48,22 @@ function Table({tableData}) {
   };
 
   return (
-    <div>
-      <table {...getTableProps()} style={{ border: 'solid 1px blue' }}>
+    <MainView>
+      <Table {...getTableProps()} >
         <thead>
           {headerGroups.map(headerGroup => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
+            <Tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map(column => (
-                <th
-                  {...column.getHeaderProps()}
-                  style={{
-                    borderBottom: 'solid 3px red',
-                    background: 'aliceblue',
-                    color: 'black',
-                    fontWeight: 'bold',
-                  }}
-                >
+                <Th {...column.getHeaderProps()}>
                   {column.id === 'cuit' || column.id === 'commerce'? 
-                    <div onClick={()=>{sortHandle(column.id)}}>
+                    <HeaderTable onClick={()=>{sortHandle(column.id)}}>
                       {column.render('Header')}
                       <span>{sortState.sortTo === column.id ? (sortState.desc? <ArrowDropDownIcon/> : <ArrowDropUpIcon/>) : ''}</span>
-                    </div>
+                    </HeaderTable>
                     : column.render('Header') }
-                </th>
+                </Th>
               ))}
-            </tr>
+            </Tr>
           ))}
         </thead>
 
@@ -78,30 +71,25 @@ function Table({tableData}) {
           {page.map(row => {
             prepareRow(row)
             return (
-              <tr {...row.getRowProps()}>
+              <Tr {...row.getRowProps()}>
                 {row.cells.map(cell => {
                   return (
-                    <td
-                      {...cell.getCellProps()}
-                      style={{
-                        padding: '10px',
-                        border: 'solid 1px gray',
-                        background: 'papayawhip',
-                      }}
-                    >
+                    <Td {...cell.getCellProps()} >
                       {cell.render('Cell')}
-                    </td>
+                    </Td>
                   )
                 })}
-              </tr>
+              </Tr>
             )
           })}
         </tbody>
-      </table>
-
-      <Pagination count={tableData.pages} onChange={handleChangePagination} shape="rounded" />
-    </div>
+      </Table>
+      
+      <Center>
+        <Pagination defaultPage={tableData.page} margin="auto" count={tableData.pages} onChange={handleChangePagination} shape="rounded" />
+      </Center>
+    </MainView>
   );
 }
 
-export default Table;
+export default TableComponent;

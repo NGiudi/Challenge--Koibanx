@@ -28,5 +28,3 @@ export const CenterButton = styled.div`
   justify-content: center;
   text-align: center;
 `;
-
-

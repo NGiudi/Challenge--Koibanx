@@ -42,7 +42,7 @@ function FilterByKeyWord() {
   return (
     <Fragment>
       <Title>Palabra clave:</Title>
-      <TextField size="small" variant="outlined" placeholder="Ingrese texto..." value={inputsState.inputText} onChange={handleChangeTextField} disabled={inputsRequest.submitedInputText}/>
+      <TextField color="secondary" size="small" variant="outlined" placeholder="Ingrese texto..." value={inputsState.inputText} onChange={handleChangeTextField} disabled={inputsRequest.submitedInputText}/>
         
       <Text mr="180px">Aplicar la palabra clave en las columnas:</Text>
 
@@ -62,8 +62,8 @@ function FilterByKeyWord() {
       </Flex>
 
       <CenterButton>
-        <Button type="submit" onClick={BtnSubmit}>Buscar</Button>
-        <Button onClick={clearFilterText}>Limpiar</Button>
+        <Button type="submit" onClick={BtnSubmit} disabled={inputsRequest.submitedInputText}>Buscar</Button>
+        <Button onClick={clearFilterText} disabled={!inputsRequest.submitedInputText}>Limpiar</Button>
       </CenterButton>
     </Fragment>
   );
