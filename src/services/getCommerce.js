@@ -14,7 +14,7 @@ function adapterResponse (data) {
 const getCommerce = async (url) => {
   console.log(process.env.REACT_APP_URL_BASE + url);
   const res = await clientAxios.get (url);
-  return adapterResponse(res.data);
+  return res.data;
 }
 
 export default getCommerce;
