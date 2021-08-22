@@ -8,7 +8,9 @@ e. Se necesita poder combinar todos los filtros anteriores.
 
 ## Cómo correr el programa?
 1. Crear un archivo .env en la carpeta raíz con las variables REACT_APP_URL_BASE y REACT_APP_API_ENDPOINT. Por ejemplo para la url https://api.koibanx.com/stores, quedaría:
-   REACT_APP_URL_BASE = https://api.koibanx.com
-   REACT_APP_API_ENDPOINT = stores
+```
+REACT_APP_URL_BASE = https://api.koibanx.com
+REACT_APP_API_ENDPOINT = stores
+```
 2. npm i
 3. npm start
